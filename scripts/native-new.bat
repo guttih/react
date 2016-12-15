@@ -22,6 +22,7 @@ if "%2"=="android" start %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
 	echo  setting up es-lint (.eslintrc.json)
 	copy  C:\scripts\data\.eslintrc.json .
 	echo  installing eslint to the project
+	npm install invariant warning --save
 	npm install --save-dev eslint eslint-config-react eslint-plugin-react babel-eslint
 	echo done!
 	echo now let's open visual code, and hit CTRL+SHIFT+P and type run Android

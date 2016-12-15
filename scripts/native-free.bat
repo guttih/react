@@ -1,0 +1,3 @@
+@echo off
+SET NATIVE=
+SET NATIVEGLOBAL=
