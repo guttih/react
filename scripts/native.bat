@@ -7,12 +7,39 @@ if "%1"=="/h"    goto HELP
 if "%1"=="/?"    goto HELP
 if "%1"=="-help" goto HELP
 if "%1"=="/help" goto HELP
+if "%1"=="-emulator"     goto EMULATOR
+if "%1"=="/emulator"     goto EMULATOR
+if "%1"=="-new"     goto NEW
+if "%1"=="/new"     goto NEW
+if "%1"=="/update"     goto UPDATE
 goto BEGIN
 
+:UPDATE
+	echo starting emulator
+	call  native-setup.bat /update
+	goto ENDIR
+:EMULATOR
+	echo starting emulator
+	start "" %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
+	goto ENDIR
+:NEW
+	cd %NATIVE%
+	call native-new.bat %2
+	goto ENDIR
 :HELP
 	echo Initializes the react-native bat file system.
 	echo. 
 	echo If no parameters are specified then all native bat commands are listed and a cd to project folder
+	echo.
+	echo paramters:
+	echo   /emulator
+	echo       runs an android emulator
+	echo   /new parameter1
+	echo         will create a project with the name specified in parameter1.
+	echo   /update
+	echo        Copies all files from "%NATIVE%" to "%NATIVEGLOBAL%"
+	
+	
 	goto ENDIR
 :BEGIN
   ::LIST avaialeble commands
