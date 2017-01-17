@@ -35,3 +35,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+#ignoring all projects in the project folder
+projects/**/*.*
+
