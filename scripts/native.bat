@@ -11,9 +11,17 @@ if "%1"=="-emulator"     goto EMULATOR
 if "%1"=="/emulator"     goto EMULATOR
 if "%1"=="-new"     goto NEW
 if "%1"=="/new"     goto NEW
-if "%1"=="/update"     goto UPDATE
+if "%1"=="-update"  goto UPDATE
+if "%1"=="/update"  goto UPDATE
+if "%1"=="-run"     goto RUN
+if "%1"=="/run"     goto RUN
 goto BEGIN
 
+:RUN
+	@echo on
+	react-native run-android
+	@echo off
+	goto ENDIR
 :UPDATE
 	echo starting emulator
 	call  native-setup.bat /update
@@ -24,6 +32,7 @@ goto BEGIN
 	goto ENDIR
 :NEW
 	cd %NATIVE%
+	cd ..\projects
 	call native-new.bat %2
 	goto ENDIR
 :HELP

@@ -28,9 +28,7 @@ if "%1"=="/help" goto HELP
 	if NOT EXIST "%NATIVE%\." GOTO UPDATE_ERROR
 	if NOT EXIST "%NATIVEGLOBAL%\." GOTO UPDATE_ERROR
 	echo A>react-setup.txt
-	@echo on
 	xcopy "%NATIVE%\*.bat" "%NATIVEGLOBAL%\*.bat" < react-setup.txt
-	@echo off
 	del react-setup.txt
 	
 	goto ENDIR
