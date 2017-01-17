@@ -37,5 +37,5 @@ jspm_packages
 .node_repl_history
 
 #ignoring all projects in the project folder
-projects/**/*.*
+projects/**
 
