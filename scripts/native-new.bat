@@ -24,18 +24,18 @@ if "%2"=="android" start %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
 	::echo {"presets": ["react-native"], > .babelrc & echo "plugins": [], "sourceMaps": true } >> .babelrc
 :ESLINT
 	echo  ------------------    setting up es-lint    ------------------
-	@echo on
+	echo copy  C:\scripts\data\.eslintrc.json .	
 	copy  C:\scripts\data\.eslintrc.json .	
 	::Installing eslint and warnings to the project
+	echo npm install --save invariant warning
 	call npm install --save invariant warning
+	echo npm install --save-dev eslint eslint-config-react 
 	call npm install --save-dev eslint eslint-config-react eslint-plugin-react
-	@echo off
 	::npm install --save-dev babel-eslint
 	echo  --------------------------------------------------------------
 	echo done!
-	echo now let's open visual code, and hit CTRL+SHIFT+P and type run Android
-	pause
-	code .
+	echo now you can open visual code, and hit CTRL+SHIFT+P and type run Android
+	echo open the project by typing "code ."
 	goto endir
 	
 :projectAlreadyExists

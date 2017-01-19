@@ -47,6 +47,11 @@ goto BEGIN
 	echo         will create a project with the name specified in parameter1.
 	echo   /update
 	echo        Copies all files from "%NATIVE%" to "%NATIVEGLOBAL%"
+	echo.
+	echo useful commands:
+	echo   How to create a new app, run the emulator and run the app
+	echo        "native && native -new mynewapp && native -emulator && native -run"
+	echo.
 	
 	
 	goto ENDIR
