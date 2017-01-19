@@ -7,6 +7,7 @@ if "%1"=="/h" goto help
 if "%1"=="/?"    goto help
 if "%1"=="-help" goto help
 if "%1"=="/help" goto help
+if "%1"=="-eslint" goto ESLINT
 if "%1"=="/eslint" goto ESLINT
 
 if EXIST %1\index.android.js goto projectAlreadyExists
