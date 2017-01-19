@@ -69,7 +69,7 @@ goto BEGIN
     echo skrifa "code ." til að opna þetta project í Visual Studio Code
    
 :DIR
-	dir
+	dir /od
 	goto ENDIR
 
 :ENDIR
