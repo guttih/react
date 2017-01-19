@@ -29,13 +29,14 @@ if "%2"=="android" start %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
 	::Installing eslint and warnings to the project
 	echo npm install --save invariant warning
 	call npm install --save invariant warning
-	echo npm install --save-dev eslint eslint-config-react 
+	echo npm install --save-dev eslint eslint-config-react eslint-plugin-react
 	call npm install --save-dev eslint eslint-config-react eslint-plugin-react
-	::npm install --save-dev babel-eslint
+	echo npm install babel-eslint
+	call npm install babel-eslint
 	echo  --------------------------------------------------------------
 	echo done!
 	echo now you can open visual code, and hit CTRL+SHIFT+P and type run Android
-	echo open the project by typing "code ."
+	echo open theroject by typing "code ."
 	goto endir
 	
 :projectAlreadyExists
