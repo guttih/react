@@ -12,18 +12,15 @@ import {
 } from 'react-native';
 import About from './common/About';
 
-import DeviceInfo from 'react-native-device-info';
 
 class App extends Component {
 
 	render () {
-		let info = DeviceInfo.getReadableVersion() + '.' + DeviceInfo.getBuildNumber();
+		
 		return (
 		<View style={styles.container}>
-			<Text style={styles.welcome}>
-			{info}
-			</Text>
-			<About title="Þetta er titill" />
+		{/*	<Text style={styles.welcome}></Text>*/}
+			<About title="Nánari upplýsingar um snjallsímaforritið" />
 		</View>
 		);
 	}
