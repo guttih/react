@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-
-
+import { View,Dimensions } from 'react-native';
+import KeyValue from './KeyValue';
 //ListView Component er til í react-native safninu.
 
 class KeyValues extends Component {
 
-
-	 objectToView (data) {
-		 let keys = Object.keys(data);
-		 return keys.map(key => {
-			return (
-				<View>
-					<Text>
-						{key}
-					</Text>
-					<Text>
-						{data[key]}
-					</Text>
-				</View>
-			);
-		 });
-	 }
+	objectToView (data, keyStyle, valStyle) {
+		let keys = Object.keys(data);
+		return (
+			keys.map(keyName => {
+				return (
+						<KeyValue keyStyle={keyStyle} valStyle={valStyle} key={keyName} variable={keyName} value={data[keyName]} />
+				);
+			})
+		);
+	}
 
 	render () {
-		const { data } = this.props;
+		const { data, keyStyle, valStyle } = this.props;
 		return (
-			<View>
-				<Text>
-					{ this.objectToView(data) }
-				</Text>
+			<View style={styles.keyValuesView}>
+				{ this.objectToView(data, keyStyle, valStyle) }
 			</View>
 		);
 	}
 }
+
+const styles = {
+	keyValuesView : {
+		backgroundColor: '#dadfe5',
+		width: (Dimensions.get('window').width * 0.9),
+		borderRadius: 5,
+		borderWidth: 0,
+		padding:5
+	}
+};
 
 export default KeyValues;

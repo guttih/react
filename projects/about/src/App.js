@@ -16,11 +16,9 @@ import About from './common/About';
 class App extends Component {
 
 	render () {
-		
 		return (
 		<View style={styles.container}>
-		{/*	<Text style={styles.welcome}></Text>*/}
-			<About title="Nánari upplýsingar um snjallsímaforritið" />
+			<About title="Um snjallsímaforritið" />
 		</View>
 		);
 	}
@@ -32,11 +30,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#F5FCFF',
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10,
 	},
 	instructions: {
 		textAlign: 'center',
