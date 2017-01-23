@@ -41,7 +41,7 @@ class About extends Component {
 					{ title }
 				</Text>
 				<KeyValues keyStyle={{  fontStyle: 'italic' }} data={info}/>
-				<Text>
+				<Text style={styles.below}>
 					below KeyValues
 				</Text>
 			</View>
@@ -51,11 +51,18 @@ class About extends Component {
 
 const styles = {
 	aboutView:{
+		flex:1,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	aboutText:{
 		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
+		margin: 10,
+		marginBottom: 30
+	}, 
+	below:{
+		marginTop: 50
 	}
 };
 
