@@ -5,36 +5,25 @@
  */
 
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import About from './common/About';
+import { Actions, Scene, Router } from 'react-native-router-flux';
 
+import About from './common/About';
+import LAbout from './common/LAbout';
+import First from './common/First';
+
+const scenes = Actions.create(
+	<Scene key="root">
+		<Scene key="first" component={First} title="Main menu"/>
+		<Scene key="about" component={About} title="Um forritið Custom"/>
+		<Scene key="labout" component={LAbout} title="Um forritið ListView"/>
+	</Scene>
+);
 
 class App extends Component {
-
 	render () {
-		return (
-		<View style={styles.container}>
-			<About title="Um snjallsímaforritið" />
-		</View>
-		);
+		return <Router scenes={scenes}/>;
 	}
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF',
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5,
-	},
-});
 export default App;
+

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView,Dimensions } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-
+import { View,Dimensions } from 'react-native';
 import KeyValue from './KeyValue';
-
 //ListView Component er til í react-native safninu.
 
 class KeyValues extends Component {
@@ -22,9 +19,9 @@ class KeyValues extends Component {
 	render () {
 		const { data, keyStyle, valStyle } = this.props;
 		return (
-			<ScrollView style={styles.keyValuesView}>
+			<View style={styles.keyValuesView}>
 				{ this.objectToView(data, keyStyle, valStyle) }
-			</ScrollView>
+			</View>
 		);
 	}
 }
