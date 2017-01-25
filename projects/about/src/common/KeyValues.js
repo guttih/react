@@ -13,7 +13,13 @@ class KeyValues extends Component {
 		return (
 			keys.map(keyName => {
 				return (
-						<KeyValue keyStyle={keyStyle} valStyle={valStyle} key={keyName} variable={keyName} value={data[keyName]} />
+						<KeyValue
+							keyStyle={keyStyle}
+							valStyle={valStyle}
+							key={keyName}
+							variable={keyName}
+							value={data[keyName]}
+						/>
 				);
 			})
 		);

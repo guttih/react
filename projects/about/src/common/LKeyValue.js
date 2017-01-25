@@ -1,11 +1,22 @@
+
 import React from 'react';
 import { View, Text } from 'react-native';
-
-const LKeyValues = ({ variable, value, keyStyle, valStyle }) => {
+import { connect } from 'react-redux';
+import { updateValue } from '../actions';
+import InputText from './InputText';
+//<Text style={{ ...styles.value, ...valStyle }}>xxxxx{value}</Text>
+const LKeyValue = ({ variable, onChange, value, keyStyle, valStyle }) => {
+	const xonChange = val => {
+		onChange(variable, val);
+	};
 	return (
 		<View style={styles.item}>
 			<Text style={{ ...styles.key, ...keyStyle }}>{variable}</Text>
-			<Text style={{ ...styles.value, ...valStyle }}>{value}</Text>
+			<InputText
+				onChangeText={t => xonChange(t)}
+				style={{ ...styles.value, ...valStyle }}
+				placeholder="Write your text" text={value}
+			/>
 		</View>
 	);
 };
@@ -16,15 +27,23 @@ const styles = {
 		borderBottomColor:'#cccccc',
 		borderBottomWidth:0.3,
 		borderStyle:'solid',
-		marginTop: 2
+		marginTop: 10
 
 	},
 	key:{
 		flex:0.35,
 	},
 	value:{
-		flex:0.65
+		flex:0.65,
+		borderBottomWidth:0,
+		borderBottomColor:'blue'
 	},
 };
-
-export default LKeyValues;
+/*const mapStateToProps = state => {
+	const { settingsStore } = state;
+	return { settingsStore };
+};*/
+//export default LKeyValues;
+//export default connect(mapStateToProps, { updateValue })(LKeyValue);
+export default LKeyValue;
+//export default connect({ updateValue })(LKeyValue);

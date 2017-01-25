@@ -21,6 +21,11 @@ class First extends Component {
 					>
 						About ListView
 					</Button>
+					<Button buttonStyle={styles.button}
+						onPress={Actions.objectview}
+					>
+						ObjectView
+					</Button>
 				</View>
 			</View>
 		);

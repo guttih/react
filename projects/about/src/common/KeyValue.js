@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+//import { Actions } from 'react-native-router-flux';
 
 const KeyValue = ({ variable, value, keyStyle, valStyle }) => {
 	return (
