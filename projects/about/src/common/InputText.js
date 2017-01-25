@@ -25,7 +25,6 @@ class InputText extends Component {
 
 const styles = {
 	height: 35,
-	
 	borderWidth: 1,
 	flex:1
 };

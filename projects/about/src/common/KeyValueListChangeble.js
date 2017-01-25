@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View,Dimensions } from 'react-native';
-import LKeyValue from './LKeyValue';
+import { KeyValueChangebleItem } from '.';
 //ListView Component er til í react-native safninu.
 
-class LKeyValues extends Component {
+class KeyValueListChangeble extends Component {
 
-	xonChange (key, value) {
+	_onChange (key, value) {
 		this.props.onChange(key, value);
 	}
 
@@ -14,8 +14,8 @@ class LKeyValues extends Component {
 		return (
 			keys.map(keyName => {
 				return (
-						<LKeyValue
-							onChange={this.xonChange.bind(this)}
+						<KeyValueChangebleItem
+							onChange={this._onChange.bind(this)}
 							keyStyle={keyStyle}
 							valStyle={valStyle}
 							key={keyName}
@@ -47,4 +47,4 @@ const styles = {
 	}
 };
 
-export default LKeyValues;
+export default KeyValueListChangeble;

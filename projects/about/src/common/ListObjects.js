@@ -29,7 +29,7 @@ class ListObjects extends Component {
 }
 
 const styles = {
-	view:{ 
+	view:{
 		flex: 1,
 		paddingTop: 10,
 		backgroundColor:'#f9f9f9'

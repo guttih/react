@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-//import { Actions } from 'react-native-router-flux';
 
-const KeyValue = ({ variable, value, keyStyle, valStyle }) => {
+const KeyValueItem = ({ variable, value, keyStyle, valStyle }) => {
 	return (
 		<View style={styles.item}>
 			<Text style={{ ...styles.key, ...keyStyle }}>{variable}</Text>
@@ -18,7 +17,6 @@ const styles = {
 		borderBottomWidth:0.3,
 		borderStyle:'solid',
 		marginTop: 10
-
 	},
 	key:{
 		flex:0.35,
@@ -28,4 +26,4 @@ const styles = {
 	},
 };
 
-export default KeyValue;
+export default KeyValueItem;

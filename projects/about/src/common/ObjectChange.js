@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import LKeyValues from './LKeyValues';
+import KeyValueListChangeble from './KeyValueListChangeble';
 import { connect } from 'react-redux';
 import { setInitialValues, updateValue } from '../actions';
 
 class ObjectChange extends Component {
-
+/*
+	This page will display a list of properties in a object.
+    It uses a LisKeyValueListChangeble Component 
+	to display the keys and values.
+*/
 	prentaGildi (obj) {
 		  console.log(obj);
 	  }
 	updateSettingsValue (key, value) {
 		this.props.updateValue(key, value);
-		//console.log('updateSettingsValue -> key:', key, ' value:', value);
 	}
-	vistaGildi () {
-		console.log('Hér ætti að vista í settingsstore');
-	}
+
 	render () {
 		const { title } = this.props;
 		this.prentaGildi(this.props.settingsStore);
@@ -24,7 +25,7 @@ class ObjectChange extends Component {
 				<Text style={styles.aboutText}>
 					{ title }
 				</Text>
-				<LKeyValues onChange={this.updateSettingsValue.bind(this)} keyStyle={{  fontStyle: 'italic' }} data={this.props.settingsStore}/>
+				<KeyValueListChangeble onChange={this.updateSettingsValue.bind(this)} keyStyle={{  fontStyle: 'italic' }} data={this.props.settingsStore}/>
 			</View>
 		);
 	}
@@ -49,5 +50,5 @@ const mapStateToProps = state => {
 	return { settingsStore };
 };
 
-//export default ObjectChange;
+
 export default connect(mapStateToProps, { setInitialValues, updateValue })(ObjectChange);

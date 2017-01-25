@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { ScrollView,Dimensions } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { ScrollView, Dimensions } from 'react-native';
 
-import KeyValue from './KeyValue';
+import { KeyValueItem } from '.';
 
-//ListView Component er til í react-native safninu.
-
-class KeyValues extends Component {
+class KeyValueList extends Component {
 
 	objectToView (data, keyStyle, valStyle) {
 		let keys = Object.keys(data);
 		return (
 			keys.map(keyName => {
 				return (
-						<KeyValue
+						<KeyValueItem
 							keyStyle={keyStyle}
 							valStyle={valStyle}
 							key={keyName}
@@ -45,4 +42,4 @@ const styles = {
 	}
 };
 
-export default KeyValues;
+export default KeyValueList;

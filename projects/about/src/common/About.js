@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import KeyValues from './KeyValues';
-import { Actions } from 'react-native-router-flux';
+import { KeyValueList } from '.';
+
 class About extends Component {
+/*
+	This page will display a list of app and device information.
+    It uses a custom KeyValueList Component to display the values.
+*/
 	render () {
 		let info = {
 			AppVersion    : DeviceInfo.getReadableVersion(),
@@ -38,7 +42,7 @@ class About extends Component {
 				<Text style={styles.aboutText}>
 					{ title }
 				</Text>
-				<KeyValues keyStyle={{  fontStyle: 'italic' }} data={info}/>
+				<KeyValueList keyStyle={{  fontStyle: 'italic' }} data={info}/>
 				<Text style={styles.below}>
 					below KeyValues
 				</Text>

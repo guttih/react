@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import ListObjects from './ListObjects';
-import LKeyValues from './LKeyValues';
-class LAbout extends Component {
+import { ListObjects } from '.';
+
+class AboutListView extends Component {
+/*
+	This page will display a list of app and device information.
+    It uses a ListObjects Component which uses a react-native 
+	ListView Component to display the values.
+*/
 
 	//Converts a unnested object to array of objects where key is named key and value is named value
 	objectToArray (jsonObject) {
@@ -17,11 +22,6 @@ class LAbout extends Component {
 		});
 		return retArr;
 	}
-
-	/**
-   * A helper function to create the datasource for the ListView
-   */
-	
 
 	render () {
 		let info = {
@@ -59,7 +59,7 @@ class LAbout extends Component {
 				</Text>
 				<ListObjects keyStyle={{  fontStyle: 'italic' }} data={this.objectToArray(info)}/>
 				<Text style={styles.below}>
-					below LKeyValues
+					below LKeyValuesChangeble
 				</Text>
 			</View>
 		);
@@ -83,4 +83,4 @@ const styles = {
 	}
 };
 
-export default LAbout;
+export default AboutListView;

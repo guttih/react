@@ -3,28 +3,29 @@ import { View, Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 /*import About from './common/About';
 import LAbout from './common/LAbout';*/
-import Button from './Button';
+import { Button } from '.';
+/* - main menu
+	This Component displays multiple buttons that will display different pages.
+*/
 class First extends Component {
 	render () {
 		return (
 			<View style={styles.container}>
-				{/*	<About title="Um snjallsímaforritið" />
-					<LAbout title="Um snjallsímaforritið" />*/}
 				<View style={styles.buttonContainer}>
 					<Button buttonStyle={styles.button} textStyle={{ color: 'red' }}
 						onPress={Actions.about}
 					>
-						About custom KeyValues
+						About app custom list
 					</Button>
 					<Button buttonStyle={styles.button}
-						onPress={Actions.labout}
+						onPress={Actions.aboutlistview}
 					>
 						About ListView
 					</Button>
 					<Button buttonStyle={styles.button}
-						onPress={Actions.objectview}
+						onPress={Actions.objectchange}
 					>
-						ObjectView
+						Change a object values
 					</Button>
 				</View>
 			</View>

@@ -8,10 +8,14 @@ import React, { Component } from 'react';
 import { Actions, Scene, Router } from 'react-native-router-flux';
 import { Provider } from 'react-redux';
 
-import About from './common/About';
-import LAbout from './common/LAbout';
-import First from './common/First';
-import ObjectChange from './common/ObjectChange';
+
+import {
+	About,
+	AboutListView,
+	ObjectChange,
+	First
+ } from './common';
+
 
 import { createStore } from 'redux';
 import Reducers from './reducers';
@@ -19,9 +23,9 @@ import Reducers from './reducers';
 const scenes = Actions.create(
 	<Scene key="root">
 		<Scene key="first" component={First} title="Main menu"/>
-		<Scene key="about" component={About} title="Um forritið Custom"/>
-		<Scene key="labout" component={LAbout} title="Um forritið ListView"/>
-		<Scene key="objectview" component={ObjectChange} title="Change object"/>
+		<Scene key="about" component={About} title="About app custom list"/>
+		<Scene key="aboutlistview" component={AboutListView} title="About app listview"/>
+		<Scene key="objectchange" component={ObjectChange} title="Change object values"/>
 	</Scene>
 );
 
