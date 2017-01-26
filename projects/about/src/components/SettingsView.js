@@ -5,10 +5,6 @@ import { setInitialValues } from '../actions';
 import { ListObjects } from './common';
 
 class SettingsView extends Component {
-	log = () =>  {
-		console.log('logging in SettingsView');
-		console.log(this.props.settingsStore);
-	};
 
 	objectToArray (jsonObject) {
 		let keyList = Object.keys(jsonObject);
@@ -22,7 +18,6 @@ class SettingsView extends Component {
 		return retArr;
 	}
 	render () {
-		this.log();
 		return (
 			<View style={styles.aboutView}>
 				<Text style={styles.aboutText}>

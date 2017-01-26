@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 	case UPDATE_SETTINGS :
-		console.log('SettingsReducer: UPDATE_SETTINGS');
 	                     /* svona er hægt að sækja bara key-inn*/
 		return { ...state, [action.payload.prop]: action.payload.value };
 	default:
