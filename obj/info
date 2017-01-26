@@ -1,4 +1,4 @@
 {
-	name: "info",
-	description: "Use this object to test api calls from your application"
+	"name": "info",
+	"description": "Use this object to test api calls from your application"
 }

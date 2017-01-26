@@ -14,7 +14,8 @@ import {
 	AboutListView,
 	SettingsChange,
 	First,
-	SettingsView
+	SettingsView,
+	FetchAndView
  } from './components';
 
 
@@ -28,6 +29,11 @@ const scenes = Actions.create(
 		<Scene key="aboutlistview" component={AboutListView} title="About app listview"/>
 		<Scene key="objectview" component={SettingsView} title="View settings"/>
 		<Scene key="objectchange" component={SettingsChange} title="Change settings"/>
+		<Scene key="fetchinfo"
+				component={FetchAndView} 
+				title="Fetch and View info"
+				src="https://raw.githubusercontent.com/guttih/react/master/obj/info"
+				/>
 	</Scene>
 );
 

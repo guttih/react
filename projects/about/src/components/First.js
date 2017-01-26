@@ -32,6 +32,11 @@ class First extends Component {
 					>
 						Change settings
 					</Button>
+					<Button buttonStyle={styles.button}
+						onPress={() => Actions.fetchinfo()}
+					>
+						Fetch and view Info
+					</Button>
 				</View>
 			</View>
 		);
