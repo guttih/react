@@ -33,8 +33,13 @@ const scenes = Actions.create(
 				component={FetchAndView}
 				title="Fetch and View info"
 				src="https://raw.githubusercontent.com/guttih/react/master/obj/info"
-				/>
-		</Scene>
+		/>
+		<Scene key="fetchmonster"
+				component={FetchAndView}
+				title="Fetch and View info"
+				src="https://raw.githubusercontent.com/guttih/react/master/obj/monster.json"
+		/>
+	</Scene>
 );
 
 class App extends Component {

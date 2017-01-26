@@ -37,6 +37,11 @@ class First extends Component {
 					>
 						Fetch and view Info
 					</Button>
+					<Button buttonStyle={styles.button}
+						onPress={() => Actions.fetchmonster()}
+					>
+						Fetch and view Monster
+					</Button>
 				</View>
 			</View>
 		);
