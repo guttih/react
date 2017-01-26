@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { InputText } from '.';
+
 const KeyValueChangebleItem = ({ variable, onChange, value, keyStyle, valStyle }) => {
 	const _OnChange = val => {
 		onChange(variable, val);

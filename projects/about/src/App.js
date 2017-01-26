@@ -12,9 +12,10 @@ import { Provider } from 'react-redux';
 import {
 	About,
 	AboutListView,
-	ObjectChange,
-	First
- } from './common';
+	SettingsChange,
+	First,
+	SettingsView
+ } from './components';
 
 
 import { createStore } from 'redux';
@@ -22,10 +23,11 @@ import Reducers from './reducers';
 
 const scenes = Actions.create(
 	<Scene key="root">
-		<Scene key="first" component={First} title="Main menu"/>
+		<Scene initial key="first" component={First} title="Main menu"/>
 		<Scene key="about" component={About} title="About app custom list"/>
 		<Scene key="aboutlistview" component={AboutListView} title="About app listview"/>
-		<Scene key="objectchange" component={ObjectChange} title="Change object values"/>
+		<Scene key="objectview" component={SettingsView} title="View settings"/>
+		<Scene key="objectchange" component={SettingsChange} title="Change settings"/>
 	</Scene>
 );
 

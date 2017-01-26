@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import { KeyValueList } from '.';
+import { ListObjects } from './common';
 
-class About extends Component {
+class AboutListView extends Component {
 /*
 	This page will display a list of app and device information.
-    It uses a custom KeyValueList Component to display the values.
+    It uses a ListObjects Component which uses a react-native 
+	ListView Component to display the values.
 */
+
+	//Converts a unnested object to array of objects where key is named key and value is named value
+	objectToArray (jsonObject) {
+		let keyList = Object.keys(jsonObject);
+		let retArr =  [];
+		keyList.forEach(function (keyName) {
+			retArr.push({
+				key: keyName,
+				value: jsonObject[keyName]
+			});
+		});
+		return retArr;
+	}
+
 	render () {
 		let info = {
 			AppVersion    : DeviceInfo.getReadableVersion(),
@@ -24,7 +39,7 @@ class About extends Component {
 			userAgent     : DeviceInfo.getUserAgent(),
 			deviceLocale  : DeviceInfo.getDeviceLocale(),
 			deviceCountry : DeviceInfo.getDeviceCountry(),
-			timezone      : DeviceInfo.getTimezone(),
+			timezone      : DeviceInfo.getTimezone()
 			//isEmulator : DeviceInfo.isEmulator(),
 			//isTablet : DeviceInfo.isTablet(),
 			//buildNumber : DeviceInfo.getBuildNumber(), //last      number  in getReadableVersion
@@ -42,9 +57,9 @@ class About extends Component {
 				<Text style={styles.aboutText}>
 					{ title }
 				</Text>
-				<KeyValueList keyStyle={{  fontStyle: 'italic' }} data={info}/>
+				<ListObjects keyStyle={{  fontStyle: 'italic' }} data={this.objectToArray(info)}/>
 				<Text style={styles.below}>
-					below KeyValues
+					below LKeyValuesChangeble
 				</Text>
 			</View>
 		);
@@ -62,10 +77,10 @@ const styles = {
 		fontSize: 20,
 		margin: 10,
 		marginBottom: 30
-	},
+	}, 
 	below:{
 		marginTop: 50
 	}
 };
 
-export default About;
+export default AboutListView;

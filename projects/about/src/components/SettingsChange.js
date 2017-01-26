@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import KeyValueListChangeble from './KeyValueListChangeble';
+import { KeyValueListChangeble } from './common';
 import { connect } from 'react-redux';
 import { setInitialValues, updateValue } from '../actions';
 
-class ObjectChange extends Component {
+class SettingsChange extends Component {
 /*
 	This page will display a list of properties in a object.
     It uses a LisKeyValueListChangeble Component 
@@ -51,4 +51,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, { setInitialValues, updateValue })(ObjectChange);
+export default connect(mapStateToProps, { setInitialValues, updateValue })(SettingsChange);
