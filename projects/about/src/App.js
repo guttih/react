@@ -30,11 +30,11 @@ const scenes = Actions.create(
 		<Scene key="objectview" component={SettingsView} title="View settings"/>
 		<Scene key="objectchange" component={SettingsChange} title="Change settings"/>
 		<Scene key="fetchinfo"
-				component={FetchAndView} 
+				component={FetchAndView}
 				title="Fetch and View info"
 				src="https://raw.githubusercontent.com/guttih/react/master/obj/info"
 				/>
-	</Scene>
+		</Scene>
 );
 
 class App extends Component {

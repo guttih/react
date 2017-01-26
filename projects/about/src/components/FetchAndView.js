@@ -6,7 +6,6 @@ import { ListObjects } from './common';
 
 class FetchAndView extends Component {
 	dataHasArrived = false;
-
 	objectToArray (jsonObject) {
 		let keyList = Object.keys(jsonObject);
 		let retArr =  [];
@@ -19,32 +18,29 @@ class FetchAndView extends Component {
 		return retArr;
 	}
 
-	getData () {
+	getData (forceUpdate) {
+		if (this.dataHasArrived === true && forceUpdate === undefined ) {
+			return;
+		}
 		this.dataHasArrived = false;
-		this.data = {
-			varname1: 'value1',
-			varname2: 'value2',
-			varname3: 'value3',
-			varname4: 'value4',
-			varname5: 'value5',
-			varname6: 'value6'
-		};
-		let that = this;
+		this.data = {};
 		fetch(this.props.src)
-      	.then((response) => response.json())
-      	.then(
-			  (responseJson) => {
-				that.data = responseJson;
-				this.dataHasArrived = true;
-				console.log('got the data');
-				console.log(that.data);
-			})
-      .catch((error) => {
-		  	console.log('villan ....................');
+		.then((response) => response.json())
+		.then((responseJson) => {
+			this.data = responseJson;
+			this.dataHasArrived = true;
+			console.log('got the data');
+			console.log(this.data);
+			this.dataHasArrived = true;
+			//force the render function to run again.
+			this.forceUpdate();
+		})
+		.catch((error) => {
+			console.log('Ekki tókst að sækja objectið');
 			console.error(error);
 		});
 
-		//this.dataHasArrived = true;
+		//
 	}
 	displayContent () {
 		if (this.dataHasArrived === true) {
