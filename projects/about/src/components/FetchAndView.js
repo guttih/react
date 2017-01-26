@@ -77,8 +77,8 @@ class FetchAndView extends Component {
 				<Text style={styles.aboutText}>
 					title:	{title}
 				</Text>
-				<Text style={styles.aboutText}>
-				  source:	{src}
+				<Text style={styles.src}>
+				   - source:{src} -
 				</Text>
 				{ this.displayContent() }
 			</View>
@@ -98,8 +98,10 @@ const styles = {
 		margin: 10,
 		marginBottom: 30
 	},
-	below:{
-		marginTop: 50
+	src:{
+		marginTop: 10,
+		fontFamily: 'Courier New',
+		fontSize:9,
 	}
 };
 

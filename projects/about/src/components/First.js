@@ -66,9 +66,7 @@ const styles = {
 		backgroundColor:'green'
 	},
 	buttonContainer:{
-
-		width: (Dimensions.get('window').width * 0.6),
-		height: 200
+		width: (Dimensions.get('window').width * 0.6)
 	}
 };
 export default First;

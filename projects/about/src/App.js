@@ -36,7 +36,7 @@ const scenes = Actions.create(
 		/>
 		<Scene key="fetchmonster"
 				component={FetchAndView}
-				title="Fetch and View info"
+				title="Fetch and View monster"
 				src="https://raw.githubusercontent.com/guttih/react/master/obj/monster.json"
 		/>
 	</Scene>
