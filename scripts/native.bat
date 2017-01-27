@@ -27,8 +27,9 @@ goto BEGIN
 	call  native-setup.bat /update
 	goto ENDIR
 :EMULATOR
-	echo starting emulator
-	start "" %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
+	echo starting emulator 
+	::start "" %ANDROID_HOME%\TOOLS\EMULATOR @Android_Accelerated_x86
+	call native-emulator %2
 	goto ENDIR
 :NEW
 	cd %NATIVE%

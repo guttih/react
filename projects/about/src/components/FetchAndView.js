@@ -5,7 +5,9 @@ import { setInitialValues } from '../actions';
 import { ListObjects } from './common';
 
 class FetchAndView extends Component {
-	dataHasArrived = false;
+	state = {
+		dataHasArrived : false
+	};
 	objectToArray (jsonObject) {
 		let keyList = Object.keys(jsonObject);
 		let retArr =  [];
@@ -19,31 +21,33 @@ class FetchAndView extends Component {
 	}
 
 	getData (forceUpdate) {
-		if (this.dataHasArrived === true && forceUpdate === undefined ) {
+		if (this.state.dataHasArrived === true && (forceUpdate === undefined || forceUpdate === false ) ) {
 			return;
 		}
-		this.dataHasArrived = false;
-		this.data = {};
+		this.setState({
+			dataHasArrived : false,
+			data: {}
+		});
 		fetch(this.props.src)
 		.then((response) => response.json())
 		.then((responseJson) => {
-			this.data = responseJson;
 			this.dataHasArrived = true;
 			console.log('got the data');
-			console.log(this.data);
+			console.log(responseJson);
 			this.dataHasArrived = true;
-			//force the render function to run again.
-			this.forceUpdate();
+			this.setState({
+				dataHasArrived : true,
+				data: responseJson
+			});
+			//this.forceUpdate(); //force the render function to run again.
 		})
 		.catch((error) => {
 			console.log('Ekki tókst að sækja objectið');
 			console.error(error);
 		});
-
-		//
 	}
 	displayContent () {
-		if (this.dataHasArrived === true) {
+		if (this.state.dataHasArrived === true) {
 			return (
 				<ListObjects
 					keyStyle={{  fontStyle: 'italic' }}
@@ -99,9 +103,10 @@ const styles = {
 		marginBottom: 30
 	},
 	src:{
-		marginTop: 10,
+		marginTop: 5,
 		fontFamily: 'Courier New',
-		fontSize:9,
+		fontSize:10,
+		color:'black'
 	}
 };
 
