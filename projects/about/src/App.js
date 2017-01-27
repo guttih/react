@@ -6,8 +6,12 @@
 
 import React, { Component } from 'react';
 import { Actions, Scene, Router } from 'react-native-router-flux';
+import { AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
-
+import createLogger from 'redux-logger';
+import { persistStore, autoRehydrate } from 'redux-persist';
+import { createStore, applyMiddleware, compose } from 'redux';
+import Reducers from './reducers';
 
 import {
 	About,
@@ -19,8 +23,7 @@ import {
  } from './components';
 
 
-import { createStore } from 'redux';
-import Reducers from './reducers';
+
 
 const scenes = Actions.create(
 	<Scene key="root">
@@ -44,10 +47,20 @@ const scenes = Actions.create(
 
 class App extends Component {
 	render () {
+		const logger = createLogger();
 		const store = createStore(
 			Reducers,
-			{}
+			{},
+			compose(
+				autoRehydrate(),
+				applyMiddleware(logger)
+			)
+
 		);
+		 persistStore(store, { storage: AsyncStorage }, () => {
+      		console.log('Store restored!');
+			console.log(store);
+    	});
 		return (
 			<Provider store={store}>
 				<Router scenes={scenes}/>

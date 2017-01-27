@@ -5,7 +5,6 @@ import { setInitialValues } from '../actions';
 import { ListObjects } from './common';
 
 class SettingsView extends Component {
-
 	objectToArray (jsonObject) {
 		let keyList = Object.keys(jsonObject);
 		let retArr =  [];

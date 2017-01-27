@@ -7,12 +7,22 @@ import { setInitialValues, updateValue } from '../actions';
 class SettingsChange extends Component {
 /*
 	This page will display a list of properties in a object.
-    It uses a LisKeyValueListChangeble Component 
+    It uses a LisKeyValueListChangeble Component
 	to display the keys and values.
 */
+	componentWillMount () {
+		this.loadAction(this.props);
+	}
+	loadAction ({ settingsStore }) {
+		if (settingsStore.rehydrated !== undefined && settingsStore.rehydrated) {
+			console.log('settingsStore er rehydrated');
+		} else {
+			console.log('settingsStore er EKKI rehydrated');
+		}
+	}
 	prentaGildi (obj) {
 		  console.log(obj);
-	  }
+	}
 	updateSettingsValue (key, value) {
 		this.props.updateValue(key, value);
 	}
