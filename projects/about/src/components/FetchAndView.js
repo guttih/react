@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions } from 'react-native';
-import { connect } from 'react-redux';
-import { setInitialValues } from '../actions';
+import { View, Text } from 'react-native';
 import { ListObjects } from './common';
 
 class FetchAndView extends Component {
-	state = {
-		dataHasArrived : false
-	};
+	componentWillMount () {
+		this.getData();
+	}
 	objectToArray (jsonObject) {
 		let keyList = Object.keys(jsonObject);
 		let retArr =  [];
@@ -20,10 +18,7 @@ class FetchAndView extends Component {
 		return retArr;
 	}
 
-	getData (forceUpdate) {
-		if (this.state.dataHasArrived === true && (forceUpdate === undefined || forceUpdate === false ) ) {
-			return;
-		}
+	getData () {
 		this.setState({
 			dataHasArrived : false,
 			data: {}
@@ -36,8 +31,8 @@ class FetchAndView extends Component {
 			console.log(responseJson);
 			this.dataHasArrived = true;
 			this.setState({
-				dataHasArrived : true,
-				data: responseJson
+				data: responseJson,
+				dataHasArrived : true
 			});
 			//this.forceUpdate(); //force the render function to run again.
 		})
@@ -51,7 +46,7 @@ class FetchAndView extends Component {
 			return (
 				<ListObjects
 					keyStyle={{  fontStyle: 'italic' }}
-					data={this.objectToArray(this.data)}	/>
+					data={this.objectToArray(this.state.data)}	/>
 			);
 		} else {
 			return (
@@ -75,7 +70,6 @@ class FetchAndView extends Component {
 	}
 	render () {
 		const { title, src } = this.props;
-		this.getData();
 		return (
 			<View style={styles.aboutView}>
 				<Text style={styles.aboutText}>
@@ -110,9 +104,12 @@ const styles = {
 	}
 };
 
-const mapStateToProps = state => {
+export default FetchAndView;
+
+/*const mapStateToProps = state => {
 	const { settingsStore } = state;
 	return { settingsStore };
 };
 
 export default connect(mapStateToProps, { setInitialValues })(FetchAndView);
+*/
