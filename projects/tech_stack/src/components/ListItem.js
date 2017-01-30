@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import {
+	View,
+	Text,
+	TouchableWithoutFeedback,
+	LayoutAnimation,
+	UIManager
+} from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
+	componentWillMount () {
+		//ekki í tutorial, en þetta þarf til að LayoutAnimation.spring(); virki.
+		UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true); 
+	}
+	componentWillUpdate () {
+		LayoutAnimation.spring();
+		console.log('updating');
+	}
 	renderDesctiontion () {
-		const { library, selectedLibraryId  } = this.props;
-		if (library.id === selectedLibraryId) {
+		const { library, expanded  } = this.props;
+		if (expanded === true) {
 			return (
-				<Text>{library.description}</Text>
+				<CardSection>
+					<Text style={{ flex: 1 }}>{library.description}</Text>
+				</CardSection>
 			);
 		}
 	}
@@ -39,9 +55,10 @@ const styles = {
 		paddingLeft: 15
 	}
 };
-
-const mapStateToProps = state => {
-	return { selectedLibraryId: state.selectedLibraryId };
+/*onwProps er sama og this.props inní ListItem*/
+const mapStateToProps = (state, ownProps) => {
+	const expanded = state.selectedLibraryId === ownProps.library.id;
+	return { expanded: expanded	};
 };
 
 export default connect(mapStateToProps, actions)(ListItem);
