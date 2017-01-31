@@ -16,7 +16,7 @@ goto GOON
 	call native.bat
 	cd %CURR_PROJECT%
 	IF ERRORLEVEL 1 goto NOT_EXISTS
-	call code .
+	start "" code .
 	call native -emulator && call native -run
 	GOTO ENDIR
 :HELP
