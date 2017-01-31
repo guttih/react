@@ -15,6 +15,8 @@ if "%1"=="-update"  goto UPDATE
 if "%1"=="/update"  goto UPDATE
 if "%1"=="-run"     goto RUN
 if "%1"=="/run"     goto RUN
+if "%1"=="-coldrun"     goto COLDRUN
+if "%1"=="/coldrun"     goto COLDRUN
 goto BEGIN
 
 :RUN
@@ -36,6 +38,11 @@ goto BEGIN
 	cd ..\projects
 	call native-new.bat %2
 	goto ENDIR
+
+:COLDRUN
+	call native-coldrun.bat %2
+	goto ENDIR
+
 :HELP
 	echo Initializes the react-native bat file system.
 	echo. 
