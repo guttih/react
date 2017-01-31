@@ -7,6 +7,7 @@ import {
 	LOGIN_USER_FAIL,
 	LOGIN_USER
 } from './types';
+
 export const emailChanged = (text) => {
 	return {
 		type: EMAIL_CHANGED,
