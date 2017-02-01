@@ -10,7 +10,7 @@ SET CURR_PROJECT=%1
 goto GOON
 
 :DEFAULT
-	SET CURR_PROJECT=
+	SET CURR_PROJECT=manager
 :GOON
 	@echo on
 	call native.bat

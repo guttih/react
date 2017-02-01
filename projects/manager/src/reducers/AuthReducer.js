@@ -7,8 +7,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-	email: '',
-	password: '',
+	email: 'test@test.com', //todo: repalse 'test@test.com with ''
+	password: 'password',   //todo: replace 'password' with ''
 	user: null,
 	error: '',
 	loading: false

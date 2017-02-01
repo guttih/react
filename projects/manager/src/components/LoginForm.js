@@ -6,6 +6,10 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 
 class LoginForm extends Component {
+
+	componentWillMount () {
+		this.props.krappvar = true;
+	}
 	onEmailChange (text) {
 		this.props.emailChanged(text);
 	}
@@ -53,7 +57,7 @@ class LoginForm extends Component {
 					<Text style={styles.errorTextStyle}>
 						{this.props.error}
 					</Text>
-					
+
 					{this.renderButton()}
 				</CardSection>
 			</Card>
@@ -72,11 +76,10 @@ const styles = {
 const mapStateToProps = ({ auth }) => {
 	const { email, password, error, loading } = auth;
 	return { email, password, error, loading };
-}
+};
 
-export default connect(mapStateToProps, { 
+export default connect(mapStateToProps, {
 	emailChanged,
 	passwordChanged,
-	loginUser,
-
+	loginUser
 })(LoginForm);

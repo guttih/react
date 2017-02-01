@@ -20,8 +20,8 @@ class App extends Component {
 		firebase.initializeApp(config);
 	}
 	render () {
-		const logger = createLogger();
-		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk, logger));
+		/*const logger = createLogger();*/
+		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk/*, logger*/));
 		return (
 			<Provider store={store}>
 				<Router />
