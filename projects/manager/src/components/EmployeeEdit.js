@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import Communications from 'react-native-communications';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSection, Confirm, Button } from './common';
 
 class EmployeeEdit extends Component {
-	//state = { showModal: false };
-
 	componentWillMount () {
 		_.each(this.props.employee, (value, prop) => {
 			this.props.employeeUpdate({ prop, value });
 		});
 	}
+
+	state = { showModal: false };
 
 	onButtonPress () {
 	  const { name, phone, shift } = this.props;
@@ -25,14 +25,14 @@ class EmployeeEdit extends Component {
 		Communications.text(phone, `Your upcoming shift is on ${shift}`);
 	}
 
-	/*onAccept () {
+	onAccept () {
 		const { uid } = this.props.employee;
 		this.props.employeeDelete({ uid });
 	}
 
 	onDecline () {
 		this.setState({ showModal: false });
-}*/
+	}
 
 	render () {
 		return (
@@ -50,20 +50,18 @@ class EmployeeEdit extends Component {
 				Text Schedule
 			</Button>
 			</CardSection>
-
-			{/*<CardSection>
-			<Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
-				Fire Employee
-			</Button>
+			<CardSection>
+				<Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
+					Fire Employee
+				</Button>
 			</CardSection>
-
 			<Confirm
-			visible={this.state.showModal}
-			onAccept={this.onAccept.bind(this)}
-			onDecline={this.onDecline.bind(this)}
+				visible={this.state.showModal}
+				onAccept={this.onAccept.bind(this)}
+				onDecline={this.onDecline.bind(this)}
 			>
-			Are you sure you want to delete this?
-			</Confirm>*/}
+				Are you sure you want to delete this?
+			</Confirm>
 		</Card>
 		);
 	}
